@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Intro.Demo"
+             Title="Contacts">
+    <StackLayout>
+        <SearchBar Placeholder="Search..." TextChanged="SearchBar_TextChanged" x:Name="SearchBar"/>
+        <ListView x:Name="listView" SeparatorColor="Black"  HasUnevenRows="True"
+              ItemTapped="listView_ItemTapped"
+              ItemSelected="listView_ItemSelected"
+              IsPullToRefreshEnabled="True" Refreshing="listView_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Call" Clicked="CallClicked" CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Delete" Clicked="DeleteClicked" IsDestructive="True" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="{Binding ImageUrl}"/>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Status}" TextColor="Gray"/>
+                            </StackLayout>
+                            <Button Text="Follow"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

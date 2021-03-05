@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Intro.SwitchPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <!--<Switch IsToggled="True" Toggled="Switch_Toggled"/>
+            <Label Text="Contenterino" x:Name="label"/>-->
+
+            <Switch IsToggled="True" x:Name="switch"/>
+            <Label Text="Content" 
+                   IsVisible="{Binding Source={x:Reference switch}, Path=IsToggled}"/>
+
+            
+            <Slider x:Name="slider" Maximum="255" Minimum="10" Value="50"/>
+            <Label Text="{Binding Source={x:Reference slider},Path=Value, StringFormat='{0:N0}'}"/>
+
+            
+            <Stepper x:Name="stepper" Increment="5"/>
+            <Label Text="{Binding Source={x:Reference stepper}, Path=Value}"/>
+
+
+            <Entry Keyboard="Numeric" Placeholder="Phone"/>
+            <Entry IsPassword="True" Completed="Entry_Completed" TextChanged="Entry_TextChanged"/>
+            <Label x:Name="label"/>
+
+
+            <Editor BackgroundColor="Yellow" />
+
+
+            <Picker Title="Contact Method" x:Name="contactMethods" SelectedIndexChanged="contactMethods_SelectedIndexChanged">
+                <!--<Picker.Items>
+                    <x:String>SMS</x:String>
+                    <x:String>Email</x:String>
+                </Picker.Items>-->
+            </Picker>
+
+            <DatePicker Date="{x:Static sys:DateTime.Today}" Format="d MMM yyyy" MinimumDate="1 Jan 1900" MaximumDate="31 Dec 2999" DateSelected="DatePicker_DateSelected"/>
+            <TimePicker Time="13:00"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

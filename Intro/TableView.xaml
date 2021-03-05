@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Intro.Extensions"
+             x:Class="Intro.TableView">
+    <ContentPage.Content>
+        <TableView Intent="Form">
+            <TableRoot>
+                <TableSection Title="Basics">
+                    <TextCell Text="Name" Detail="Hayuck"/>
+                    <EntryCell Label="Title" Text="{Binding Title}" Placeholder="eg Shopping" />
+                    <SwitchCell Text="Notifications" On="{Binding NotificationsEnabled}" />
+                    <local:DateCell Label="Starts"/>
+                    <local:DateCell Label="Ends"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>
